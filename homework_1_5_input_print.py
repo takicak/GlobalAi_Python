@@ -7,7 +7,7 @@ Created on Tue Dec 22 13:52:38 2020
 
 val1 = int(   input("Lütfen integer giriniz : ") )
 val2 = float( input("Lütfen float   giriniz : ") )
-val3 =        input("Lütfen string  giriniz : ")
+val3 = bool(  input("Lütfen boolean  giriniz : ") )
 val4 =        input("Lütfen string  giriniz : ")
 val5 =        input("Lütfen string  giriniz : ")
 
