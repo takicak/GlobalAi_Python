@@ -3,16 +3,12 @@
 Created on Fri Dec 25 22:41:39 2020
 @author: takic
 
-         |----|
-         |    |
-         O    |
-        /|\   |
-        / \   |
-             ---
+
 """
 import random
 import sys
 
+# il isimlerinde türkçe harf kullanmamaya çalıştım. listeye ek yapılabilir.
 citynames = ["ANKARA",
              "BURSA",
              "ANTALYA",
@@ -25,20 +21,30 @@ citynames = ["ANKARA",
              "ERZURUM"]
 
 
-adam = ["\n\n\n\n\n\n",
-        "\n\n\n\n\n(13)---",
-        "(14)|\n(14)|\n(14)|\n(14)|\n(14)|\n(13)---",
-        "(10)----|\n(14)|\n(14)|\n(14)|\n(14)|\n(14)|\n(13)---",
-        "(9)|----|\n(9)|(4)|\n(14)|\n(14)|\n(14)|\n(14)|\n(13)---",
-        "(9)|----|\n(9)|(4)|\n(9)O(4)|\n(14)|\n(14)|\n(14)|\n(13)---",
+"""
+         |----|
+         |    |
+         O    |
+        /|\   |
+        / \   |
+             ---
+"""
+# boşluklar yer kaplamasın diye adetlerini tagladım.
+adam = ["\n\n\n\n\n\n",  # boş ekran
+        "\n\n\n\n\n(13)---", # toprak
+        "(14)|\n(14)|\n(14)|\n(14)|\n(14)|\n(13)---", # direk
+        "(10)----|\n(14)|\n(14)|\n(14)|\n(14)|\n(14)|\n(13)---",  # direk ve uzantısı
+        "(9)|----|\n(9)|(4)|\n(14)|\n(14)|\n(14)|\n(14)|\n(13)---",  # ip
+        "(9)|----|\n(9)|(4)|\n(9)O(4)|\n(14)|\n(14)|\n(14)|\n(13)---", # kafa
         
-        "(9)|----|\n(9)|(4)|\n(9)O(4)|\n(9)|(4)|\n(14)|\n(14)|\n(13)---",
-        "(9)|----|\n(9)|(4)|\n(9)O(4)|\n(8)/|(4)|\n(14)|\n(14)|\n(13)---",
-        "(9)|----|\n(9)|(4)|\n(9)O(4)|\n(8)/|\(3)|\n(14)|\n(14)|\n(13)---",
+        "(9)|----|\n(9)|(4)|\n(9)O(4)|\n(9)|(4)|\n(14)|\n(14)|\n(13)---", # gövde
+        "(9)|----|\n(9)|(4)|\n(9)O(4)|\n(8)/|(4)|\n(14)|\n(14)|\n(13)---",  # sol kol
+        "(9)|----|\n(9)|(4)|\n(9)O(4)|\n(8)/|\(3)|\n(14)|\n(14)|\n(13)---", # sağ kol
         
-        "(9)|----|\n(9)|(4)|\n(9)O(4)|\n(8)/|\(3)|\n(8)/(5)|\n(14)|\n(13)---",
-        "(9)|----|\n(9)|(4)|\n(9)O(4)|\n(8)/|\(3)|\n(8)/ \(3)|\n(14)|\n(13)---"]
+        "(9)|----|\n(9)|(4)|\n(9)O(4)|\n(8)/|\(3)|\n(8)/(5)|\n(14)|\n(13)---", # sol ayak
+        "(9)|----|\n(9)|(4)|\n(9)O(4)|\n(8)/|\(3)|\n(8)/ \(3)|\n(14)|\n(13)---"]  # sağ ayak
 
+# taglı boşlukları adetleri kadar boşlukla replace ediyorum
 def replace_space(adamstr):
     adamstr = adamstr.replace("(13)", "             ")
     adamstr = adamstr.replace("(14)", "              ")
@@ -90,7 +96,7 @@ hiddencitystr = "_"*len(citystr)
 
 while "_" in hiddencitystr:
     adam_ciz(cizgi)
-    print(citystr)
+    print(citystr)   # Test için açık bırakıldı ;)
     print(hiddencitystr)
     guess = input("Enter one letter : ").upper()
     if guess in citystr:
