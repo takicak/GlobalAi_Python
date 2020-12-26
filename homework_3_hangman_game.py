@@ -98,7 +98,7 @@ while "_" in hiddencitystr:
     adam_ciz(cizgi)
     # print(citystr)   # Test için açık bırak ;)
     print(hiddencitystr)
-    guess = input("Enter one letter : ").upper()
+    guess = input("Enter one letter : ").replace("i","İ").upper()
     if guess in citystr:
         changehiddencitystr(guess)
     else:
