@@ -6,6 +6,10 @@ Created on Sat Dec 26 04:08:45 2020
 """
 import sys
 import random
+#----------------------------------------------------------------
+#  LOGIN OLABILECEK USER LISTESI
+#----------------------------------------------------------------
+userlist = [ ["ömer", "cengiz"], ["elif", "yiğit"], ["kutay", "akalın"], ["aysuda","ceylan"] ]
 
 def display_grade_str(score):
     if score >= 90:
@@ -20,8 +24,6 @@ def display_grade_str(score):
         return("FF You Fail")
     
 
-#login olabilecek user listesi
-userlist = [ ["ömer", "cengiz"], ["elif", "yiğit"], ["kutay", "akalın"], ["aysuda","ceylan"] ]
 
 login = False
 logintry = 0
