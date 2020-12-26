@@ -13,15 +13,15 @@ userlist = [ ["ömer", "cengiz"], ["elif", "yiğit"], ["kutay", "akalın"], ["ay
 
 def display_grade_str(score):
     if score >= 90:
-        return("AA")
+        return("** AA **")
     elif 70 <= score < 90:
-        return("BB")
+        return("** BB **")
     elif 50 <= score < 70:
-        return("CC")
+        return("** CC **")
     elif 30 <= score < 50:
-        return("DD")
+        return("** DD **")
     else:
-        return("FF You Fail")
+        return("** FF You Fail **")
     
 
 
@@ -66,8 +66,10 @@ while lessoncount < 6:
     
 print("Main Lesson List is saved...")
 print()
-for lesson in lessons:
-    print(str(lessons.index(lesson)+1) + ".)", lesson, "Lesson")
+for id, lesson in enumerate(lessons):
+    # print(str(lessons.index(lesson)+1) + ".)", lesson, "Lesson")
+    print(str(id+1) + ".)", lesson, "Lesson")
+    
     
     
 print("Please Select min 3, max 5 lesson for Yourself.")
@@ -77,7 +79,7 @@ selectedlessons = []
 selectedlesson = -1
 
 while not (selectedlesson == 0 and 3 <= selectedlessonscount <= 5 ):
-    selectedlesson = input("(press 0 (zero) to quit) Lesson Number : ")
+    selectedlesson = input("(PRESS 0 (zero) to QUIT Selection) Lesson Number : ")
     try:
         selectedlesson = int(selectedlesson)
     except:
@@ -88,9 +90,10 @@ while not (selectedlesson == 0 and 3 <= selectedlessonscount <= 5 ):
         if lessons[selectedlesson-1] not in selectedlessons: 
             selectedlessons.append(lessons[selectedlesson-1])
             selectedlessonscount += 1
-            print("Selected Lessons ("+str(selectedlessonscount)+") : ", end="")
-            for seles in selectedlessons:
-                print(seles, ", ", end="")
+            print("Selected Lessons (count: "+str(selectedlessonscount)+") : ", end="")
+            #for seles in selectedlessons:
+            #    print(seles, ", ", end="")
+            print(', '.join(selectedlessons))
         else:
             print("You Select This Lesson Before")
                 
@@ -100,9 +103,9 @@ while not (selectedlesson == 0 and 3 <= selectedlessonscount <= 5 ):
             print("You failed in Class")
             continue
 
-grades = {"midterm":random.randint(0, 100), 
-          "final":random.randint(0, 100),
-          "project":random.randint(0, 100)}
+grades = {"midterm":random.randint(20, 100), 
+          "final":random.randint(30, 100),
+          "project":random.randint(40, 100)}
 
 score = 0
 print()
@@ -111,7 +114,7 @@ print("Your", selectedlessons[0], "Lesson Exam Grades")
 score += grades["midterm"]*30/100
 score += grades["final"]*50/100
 score += grades["project"]*20/100
-print("MidTerm Exam: ", grades["midterm"], "Score Percent(30%) :", grades["midterm"]*30/100)
-print("Final   Exam: ", grades["final"],   "Score Percent(50%) :", grades["final"]*50/100)
-print("Project Exam: ", grades["project"], "Score Percent(20%) :", grades["project"]*20/100)
-print("Total Score :", score, "Note is", display_grade_str(score))  
+print("MidTerm Exam: ", grades["midterm"], "Score Percent(30%) :", '{:.2f}'.format(grades["midterm"]*30/100))
+print("Final   Exam: ", grades["final"],   "Score Percent(50%) :", '{:.2f}'.format(grades["final"]*50/100))
+print("Project Exam: ", grades["project"], "Score Percent(20%) :", '{:.2f}'.format(grades["project"]*20/100))
+print("Total Score :", '{:.2f}'.format(score), "Note is", display_grade_str(score))  
