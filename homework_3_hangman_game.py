@@ -83,7 +83,7 @@ def changehiddencitystr(guess):
     
         
 
-user = input("Enter the Gamer Name : ").upper()
+user = input("Enter the Player Name : ").upper()
 print("\n\n\n")
 print("W E L C O M E    ", end=(""))
 for char in user:
@@ -96,7 +96,7 @@ hiddencitystr = "_"*len(citystr)
 
 while "_" in hiddencitystr:
     adam_ciz(cizgi)
-    print(citystr)   # Test için açık bırakıldı ;)
+    # print(citystr)   # Test için açık bırak ;)
     print(hiddencitystr)
     guess = input("Enter one letter : ").upper()
     if guess in citystr:
