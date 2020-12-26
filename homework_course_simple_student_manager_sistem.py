@@ -85,8 +85,7 @@ grades = {"midterm":random.randint(0, 100),
 
 
 print("Your", selectedlessons[0], "Lesson Exam Grades")
-#for key, value in grades.items():
 print("MidTerm Exam: ", grades["midterm"], "Score Percent(30%) :")
 print("Final   Exam: ", grades["final"],   "Score Percent(50%) :")
 print("Project Exam: ", grades["project"], "Score Percent(20%) :")
-print("Total Score :")
+print("Total Score :")  ## AA-FF not dönen fonksiyon yazılacak
