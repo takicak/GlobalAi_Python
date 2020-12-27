@@ -69,7 +69,7 @@ print()
 for id, lesson in enumerate(lessons):
     # print(str(lessons.index(lesson)+1) + ".)", lesson, "Lesson")
     print(str(id+1) + ".)", lesson, "Lesson")
-    
+print("0.) QUIT")
     
     
 print("Please Select min 3, max 5 lesson for Yourself.")
